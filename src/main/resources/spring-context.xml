@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 配置自动扫描的包 --> 
+	<context:component-scan base-package="com.atguigu.survey.component">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<!-- 引入外部属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+ 
+	<!-- 配置数据源 -->	
+	<bean id="dataSourceTemplate" abstract="true" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="maxPoolSize" value="10"></property>
+		<property name="minPoolSize" value="1"></property>
+		<property name="initialPoolSize" value="1"></property>
+	</bean>
+	
+	<bean id="dataSourceMain" parent="dataSourceTemplate">
+		<property name="jdbcUrl" value="${jdbc.url}" />
+	</bean>
+	
+	<bean id="dataSourceLog" parent="dataSourceTemplate">
+		<property name="jdbcUrl" value="${jdbc.log.url}" />
+	</bean>
+	
+		
+	<!-- 自定义路由数据源配置 -->
+	<bean id="logRouterDataSource" class="com.atguigu.survey.log.router.LogRouterDataSource">	
+		<!-- 管理多个具体的数据源 -->
+		<property name="targetDataSources">
+			<map>
+				<entry key="DATASOURCE_MAIN" value-ref="dataSourceMain"/>
+				<entry key="DATASOURCE_LOG" value-ref="dataSourceLog"/>
+			</map>
+		</property>
+		<!-- 配置默认的数据源，再没有获取具体的key时使用 -->
+		<!-- 因为dataSourceMain数据源使用频率比较高，所以，设置为默认数据源。在不用设置具体key的情况下，直接选择这个数据源使用 -->
+		<property name="defaultTargetDataSource" ref="dataSourceMain"/>
+	</bean>
+
+	<!-- 配置SessionFactory  -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="logRouterDataSource"/>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<!-- <property name="mapperLocations" value="classpath:com/atguigu/survey/component/dao/i/*.xml"></property> -->
+		<!-- 可以使用父包包名，扫描其他子包 -->
+		<property name="typeAliasesPackage" value="com.atguigu.survey.entities"/>
+	</bean>
+
+	<!-- 配置Mapper所在的包 -->
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.atguigu.survey.component.dao.i"/>
+	</bean>
+
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="logRouterDataSource" />
+	</bean>
+
+	<!-- 配置基于XML的声明式事务 -->
+	<!-- 1.配置事务切面的切入点表达式 -->
+	<aop:config> 
+		<aop:pointcut expression="execution(* *..*Service.*(..))"
+			id="txPointCut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut" order="2"/>
+	</aop:config>
+
+	<!-- 2.配置事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+
+		<!-- 配置事务方法的事务属性 --> 
+		<tx:attributes>			
+
+			<!-- 即便所有事务属性都是使用默认值，都需要明确配置tx:method -->
+			<!-- 回滚的异常类型：默认情况下仅针对运行时异常回滚，而对于编译时异常不回滚 -->
+			<tx:method name="update*" rollback-for="java.lang.Exception" />
+			<tx:method name="delete*" rollback-for="java.lang.Exception" />
+			<tx:method name="remove*" rollback-for="java.lang.Exception" />
+			<tx:method name="save*" rollback-for="java.lang.Exception" propagation="REQUIRES_NEW"/>
+			<tx:method name="batch*" rollback-for="java.lang.Exception" />
+			<tx:method name="regist" rollback-for="java.lang.Exception" />
+			<tx:method name="deeply*" rollback-for="java.lang.Exception" />
+			<tx:method name="complete*" rollback-for="java.lang.Exception" />
+			<tx:method name="parseAndSave" rollback-for="java.lang.Exception" />
+			<tx:method name="do*" rollback-for="java.lang.Exception" />
+			<tx:method name="create*" rollback-for="java.lang.Exception" />
+
+			<tx:method name="test*" rollback-for="java.lang.Exception" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="login*" read-only="true" />
+			<tx:method name="check*" read-only="true" />
+			<!-- <tx:method name="*" read-only="true" /> -->
+		</tx:attributes>
+
+	</tx:advice>
+
+	<!-- ********************************************************************* -->
+	<!-- 声明切面类对象 -->
+	<bean id="logRecorder" class="com.atguigu.survey.log.aspect.LogRecorder"></bean>
+	
+	<!-- AOP配置 -->
+	<aop:config>
+		<aop:pointcut expression="(execution(* *..*Service.update*(..)) or  
+								   execution(* *..*Service.delete*(..)) or 
+								   execution(* *..*Service.remove*(..)) or 
+								   execution(* *..*Service.save*(..)) or 
+								   execution(* *..*Service.batch*(..)) or 
+								   execution(* *..*Service.regist(..)) or 
+								   execution(* *..*Service.deeply*(..)) or 
+								   execution(* *..*Service.complete*(..)) or 
+								   execution(* *..*Service.parseAndSave(..)) or 
+								   execution(* *..*Service.do*(..))) and !bean(logServiceImpl)" id="logPointcut"/>
+								   
+		<aop:aspect id="logAspect" ref="logRecorder" order="5">
+			<aop:around method="logRecord" pointcut-ref="logPointcut"/>
+		</aop:aspect>
+	</aop:config>
+	<!-- ********************************************************************* -->
+
+	<!-- 服务器启动时，创建表结构，Spring监听器 -->
+	<bean id="logListener" class="com.atguigu.survey.log.listener.LogListener"></bean>
+
+	
+	<!-- *********配置石英调度-开始*********************************************************** -->
+	<bean id="jobDetailBean" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.atguigu.survey.log.quartz.LogQuartzJobBean"/>
+		<property name="jobDataMap">
+			<map>
+				<entry key="logService" value-ref="logServiceImpl"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 克龙(时间单位)表达式 -->
+	<bean id="cronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDetailBean"/>
+		<property name="cronExpression" value="0 0 0 15 * ?"/>
+		<!-- <property name="cronExpression" value="1-59/15 * * * * ?"/> -->
+	</bean>
+	
+	<bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTriggerBean"/>
+			</list>
+		</property>
+	</bean>
+	<!-- *********配置石英调度-结束*********************************************************** -->
+
+
+	<!-- &&&&&&&&&二级缓存配置&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+	<!-- 生成缓存Map中key的Bean对象 -->
+	<bean id="keyGenerator" class="com.atguigu.survey.ehcache.SurveyKeyGenerator"></bean>
+
+	<!-- 配置Ehcache缓存管理器工厂，需要指定Ehcache自身的配置文件 -->
+	<bean id="ehCacheManagerFactoryBean" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml"/>
+	</bean>
+	
+	<!-- 配置Ehcache缓存管理器本身 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehCacheManagerFactoryBean"/>
+	</bean>
+	
+	<!-- 配置切入点表达式 -->
+	<aop:config>
+		<!-- 
+				Survey getSurveyById(Integer surveyId);
+				
+				Page<Survey> getAllAvailableSurvey(String pageNoStr);
+				void complete(Integer surveyId); //对getAllAvailableSurvey()有影响，但对getSurveyById()不应该有影响
+		 -->
+		<aop:pointcut expression="execution(* *..*Service.*(..))" id="ehcachePointcut"/>
+		<aop:advisor advice-ref="ehcacheAdvice" pointcut-ref="ehcachePointcut"/>
+	</aop:config>
+	
+	<!-- 配置缓存通知 -->
+	<!-- 在缓存通知中配置目标方法的具体属性 -->
+	<cache:advice id="ehcacheAdvice" key-generator="keyGenerator" cache-manager="cacheManager">
+		<cache:caching cache="surveyCache"><!-- ehcache.xml文件中配置的缓存名称 -->
+			<!-- 切入点表达式匹配的连接点的具体方法名称 -->
+			<cache:cacheable method="getSurveyById"/>			
+		</cache:caching>
+		<cache:caching cache="surveyCacheEvcit">
+			<cache:cacheable method="getAllAvailableSurvey"/>
+			<!-- complete()方法只会影响getAllAvailableSurvey()方法，将本缓存区数据清除，但对其他缓存区方法不受影响 -->
+			<!-- allEntries是boolean类型，表示是否需要清除缓存中的所有元素。默认为false，表示不需要。
+			当指定了allEntries为true时，Spring Cache将忽略指定的key。
+			有的时候我们需要Cache一下清除所有的元素，这比一个一个清除元素更有效率。 -->
+			<cache:cache-evict method="complete" all-entries="true"/>
+		</cache:caching>
+	</cache:advice>
+
+
+</beans>

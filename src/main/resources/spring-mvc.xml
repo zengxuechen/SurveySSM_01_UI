@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 自动扫描的包 --> 
+	<context:component-scan base-package="com.atguigu.survey.component" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+ 
+	<!-- 视图解析器 -->
+	<!-- /WEB-INF/guest/user_login.jsp -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<mvc:default-servlet-handler />
+	<mvc:annotation-driven />
+
+
+	<!-- 
+		@RequestMapping("/guest/user/toLoginUI")
+		public String login(){		
+			return "guest/user_login";
+		}
+	 -->
+	<mvc:view-controller path="/guest/user/toLoginUI" view-name="guest/user_login"/>
+	<mvc:view-controller path="/guest/user/toRegist" view-name="guest/user_regist"/>
+	<mvc:view-controller path="/guest/survey/toAddUI" view-name="guest/survey_addUI"/>
+	
+	
+	<mvc:view-controller path="/manager/admin/toMainUI" view-name="manager/admin_main"/>
+	<mvc:view-controller path="/manager/admin/toLoginUI" view-name="manager/admin_login"/>
+	
+	<mvc:view-controller path="/manager/auth/toAuthUI" view-name="manager/auth_authUI"/>
+	<mvc:view-controller path="/manager/role/toRoleUI" view-name="manager/role_roleUI"/>
+	<mvc:view-controller path="/manager/admin/toAdminUI" view-name="manager/admin_adminUI"/>
+
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionAttribute" value="exception"></property>
+		<property name="exceptionMappings">
+			<props>
+				<!-- 前台guest用户使用 -->
+				<prop key="com.atguigu.survey.e.UserNameAlreadyExistsException">guest/user_regist</prop>
+				<prop key="com.atguigu.survey.e.UserLoginFailedExcption">guest/user_login</prop>
+				<prop key="com.atguigu.survey.e.UserOperationForbiddenException">guest/user_login</prop>
+				<prop key="com.atguigu.survey.e.SaveFileTooLargeException">guest/survey_addUI</prop>
+				<prop key="com.atguigu.survey.e.SaveFileTypeInvailidException">guest/survey_addUI</prop>
+				<prop key="com.atguigu.survey.e.EditFileTooLargeException">guest/survey_editUI</prop>
+				<prop key="com.atguigu.survey.e.EditFileTypeInvailidException">guest/survey_editUI</prop>
+				<prop key="com.atguigu.survey.e.RemoveSurveyFailedException">error</prop>
+				<prop key="com.atguigu.survey.e.RemoveBagFailedException">error</prop>
+				<prop key="com.atguigu.survey.e.BagOrderDuplicateException">guest/bag_adjustUI</prop>
+				<prop key="com.atguigu.survey.e.BagEmptyException">error</prop>
+				<prop key="com.atguigu.survey.e.SurveyEmptyException">error</prop>
+				
+				<!-- 后台管理使用 -->
+				<prop key="com.atguigu.survey.e.AdminLoginFailedExcption">manager/admin_login</prop>
+				<prop key="com.atguigu.survey.e.AdminOperationForbiddenException">manager/admin_login</prop>
+				<prop key="com.atguigu.survey.e.AdminNameAlreadyExistsException">manager/admin_adminUI</prop>
+				<prop key="com.atguigu.survey.e.RemoveAuthFailedException">error</prop>
+				<prop key="com.atguigu.survey.e.RemoveRoleFailedException">error</prop>
+				<prop key="com.atguigu.survey.e.RemoveAdminFailedException">error</prop>
+				
+				<!-- 权限拦截器使用 -->
+				<prop key="com.atguigu.survey.e.HasNoAuthorityException">error</prop>
+				<!-- <prop key="java.lang.Exception">error</prop> -->
+			</props>
+		</property>
+	</bean>
+
+	<!-- 注册自定义拦截器 -->
+	<mvc:interceptors>		
+		<bean class="com.atguigu.survey.interceptors.RequestBindInterceptor"></bean>
+		<!-- <bean id="resInterceptor" class="com.atguigu.survey.interceptors.ResInterceptor"></bean> -->
+		<!-- <bean id="loginInterceptor" class="com.atguigu.survey.interceptors.LoginInterceptor"></bean> -->
+		<!-- 三峡大坝合拢啦 -->
+		<bean id="authorityInterceptor" class="com.atguigu.survey.interceptors.AuthorityInterceptor"></bean>
+	</mvc:interceptors>
+	
+	<!-- 配置多部件的文件上传解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="maxUploadSize" value="1048576"/><!-- 1024*1024 -->
+	</bean>
+
+</beans>

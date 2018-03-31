@@ -1,0 +1,125 @@
+﻿@CHARSET "UTF-8";
+/*==============================声明区=============================*/
+body {
+	font-family: 微软雅黑;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:HOVER {
+	color: red;
+}
+
+.borderDiv {
+	/* border: 1px solid black; */
+	-moz-border-radius: 15px;      /* Gecko browsers */
+	-webkit-border-radius: 15px;   /* Webkit browsers */
+	border-radius:15px;            /* W3C syntax */
+}
+
+.formTable {
+	width: 600px;
+	margin: 0px auto 0px auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.formTable td {
+	border: 1px solid black;
+	text-align: center;
+}
+
+.longInput {
+	border: 1px solid black;
+	width: 200px;
+	text-align: center;
+}
+
+.multiInput {
+	border: 1px solid black;
+	width: 200px;
+	height: 80px;
+}
+
+.shortInput {
+	border: 1px solid black;
+	width: 50px;
+}
+
+.dataTable {
+	border: 1px dashed black;
+	width: 100%;
+	-moz-border-radius: 15px;      /* Gecko browsers */
+	-webkit-border-radius: 15px;   /* Webkit browsers */
+	border-radius:15px;            /* W3C syntax */
+}
+
+.dataTable td {
+	border: 1px dashed black;
+	-moz-border-radius: 15px;      /* Gecko browsers */
+	-webkit-border-radius: 15px;   /* Webkit browsers */
+	border-radius:15px;            /* W3C syntax */
+	text-align: center;
+}
+
+.text_left {
+	text-align: left;
+}
+
+/*==============================定制区=============================*/
+.company_cn{
+	color:#53A4F4;
+	font-size:24px;
+	border-right:solid 2px #9E9E9E;
+}
+
+.company_en{
+	color:#53A4F4;
+	font-size:18px;
+	border-right:solid 2px #9E9E9E;
+}
+
+.watchword_cn{
+	color:#9E9E9E;
+	font-size:20px;
+}
+
+.watchword_en{
+	color:#9E9E9E;
+	font-size:13px;
+}
+
+.indexBg{
+	height:360px;
+	background:url('/res_static/img/indexBg.jpeg') no-repeat;
+}
+
+
+
+
+#topDiv {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#logoDiv {
+	text-align: center;
+	font-size: 40px;
+	padding: 10px;
+}
+
+#bottomDiv {
+	text-align: center;
+}
+
+#mainDiv {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	height : 100%;
+	text-align: center;		
+}
