@@ -26,22 +26,23 @@
 					<!-- 只有企业用户才可以访问的连接 -->
 					<c:if test="${sessionScope.loginUser.company }">
 						<li><a href="guest/survey/toAddUI">创建测评<span class="sr-only"></span></a></li>
-						<li><a href="guest/survey/showMyUnCompletedSurvey">我未完成的调查<span class="sr-only"></span></a></li>
+						<li><a href="guest/survey/showMyUnCompletedSurvey">我未完成的测评<span class="sr-only"></span></a></li>
 					</c:if>
 					
 					<!-- 无论企业用户还是个人用户都可以访问的超链接 -->
 					<li class="dropdown">
-						<!-- <a href="guest/engage/showAllAvailableSurvey">参与调查<span class="sr-only"></span></a> -->
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">参与调查<span class="caret"></span></a>
+						<!-- <a href="guest/engage/showAllAvailableSurvey">参与测评<span class="sr-only"></span></a> -->
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">参与测评<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-				            <li><a href="guest/engage/showAllAvailableSurvey?type=1">情绪</a></li>
-				            <li role="separator" class="divider"></li>
-				            <li><a href="guest/engage/showAllAvailableSurvey?type=2">性格</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PC/0">职业性格</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PH/1">心理健康</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode?typeCode=PA_EC&pageNoStr=0">情绪能力</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode?typeCode=PA_CA&pageNoStr=0">职业锚</a></li>
 				            <li role="separator" class="divider"></li>
 				            <li><a href="guest/engage/showAllAvailableSurvey?type=3">知识</a></li>
 				             <li role="separator" class="divider"></li>
 				            <li><a href="guest/engage/showAllAvailableSurvey?type=4">管理</a></li>
-				          </ul>
+				         </ul>
 					</li>
 				</c:if>
 		      </ul>

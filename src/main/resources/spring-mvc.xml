@@ -76,7 +76,7 @@
 	<!-- 注册自定义拦截器 -->
 	<mvc:interceptors>		
 		<bean class="com.atguigu.survey.interceptors.RequestBindInterceptor"></bean>
-		<!-- <bean id="resInterceptor" class="com.atguigu.survey.interceptors.ResInterceptor"></bean> -->
+		<bean id="resInterceptor" class="com.atguigu.survey.interceptors.ResInterceptor"></bean>
 		<!-- <bean id="loginInterceptor" class="com.atguigu.survey.interceptors.LoginInterceptor"></bean> -->
 		<!-- 三峡大坝合拢啦 -->
 		<bean id="authorityInterceptor" class="com.atguigu.survey.interceptors.AuthorityInterceptor"></bean>
