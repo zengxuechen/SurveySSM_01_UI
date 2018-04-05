@@ -31,19 +31,14 @@
             <c:if test="${!empty page.list  && fn:length(page.list) > 0}">
             	<c:forEach items="${page.list}" var="test">
 					<tr>
-						<%-- <td>${test.id }</td>
-						<td>${test.testTypeCode }</td>
-						<td>${test.testTypeName }</td> --%>
-						<td><a href="guest/selectQuestionLib/queryExQuestionByIds/${test.questionIds }/0" >${test.testPaperName }</a></td>
-						<%-- <td>${test.paperOnFlag }</td>
-						<td>${test.questionIds }</td> --%>
+						<td><a href="guest/selectQuestionLib/queryExQuestionByIds/${test.id }/${test.questionIds }/0/null" >${test.testPaperName }</a></td>
 					</tr>
 				</c:forEach>
             </c:if>
             <tr><td> </td></tr>
  		</table>
  	</div>
-
+	
  	<%@ include file="/res_jsp/guest_bottom.jsp" %>
  	
 </body>
