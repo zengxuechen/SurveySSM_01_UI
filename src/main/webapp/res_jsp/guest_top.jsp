@@ -24,24 +24,33 @@
 				<li><a href="index.jsp">首页</a></li>
 				<c:if test="${sessionScope.loginUser != null }">
 					<!-- 只有企业用户才可以访问的连接 -->
-					<c:if test="${sessionScope.loginUser.company }">
+					<%-- <c:if test="${sessionScope.loginUser.company }">
 						<li><a href="guest/survey/toAddUI">创建测评<span class="sr-only"></span></a></li>
 						<li><a href="guest/survey/showMyUnCompletedSurvey">我未完成的测评<span class="sr-only"></span></a></li>
-					</c:if>
+					</c:if> --%>
 					
 					<!-- 无论企业用户还是个人用户都可以访问的超链接 -->
 					<li class="dropdown">
-						<!-- <a href="guest/engage/showAllAvailableSurvey">参与测评<span class="sr-only"></span></a> -->
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">参与测评<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PC/1">职业性格</a></li>
-				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PH/1">心理健康</a></li>
-				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_EC/1">情绪能力</a></li>
-				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_CA/1">职业锚</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PC/1">人才测评-职业性格</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PH/1">人才测评-心理健康</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_EC/1">人才测评-情绪能力</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_CA/1">人才测评-职业锚</a></li>
 				            <li role="separator" class="divider"></li>
-				            <li><a href="guest/engage/showAllAvailableSurvey?type=3">知识</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PCC/1">知识</a></li>
 				             <li role="separator" class="divider"></li>
-				            <li><a href="guest/engage/showAllAvailableSurvey?type=4">管理</a></li>
+				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PCC/1">管理</a></li>
+				         </ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">导出报告<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+				            <li><a href="guest/custTestResult/queryResultByTypeCode/PA_PC">人才测评报告</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="guest/custTestResult/queryResultByTypeCode/PA_PCC">知识测评报告</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="guest/custTestResult/queryResultByTypeCode/PA_PCD">管理测评报告</a></li>
 				         </ul>
 					</li>
 				</c:if>
