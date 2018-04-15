@@ -54,7 +54,7 @@
 		 		 		<td>部门</td>
 		 		 		<td>职位</td>
 		 		 		<td>设置职位</td>
-		 		 		<td>查看试题</td>
+		 		 		<!-- <td>查看试题</td> -->
 		 		 		<!-- <td>批量勾选</td> -->
 		 		 		<td>设置试题</td>
 		 		 		<td>导出报告</td>
@@ -82,11 +82,11 @@
 			 		 			<input id="${user.userId }" class="userBtn" type="checkbox" name="userList" value="${user.userId }"/>
 			 		 			<label for="${user.userId }">删除</label>
 			 		 		</td> --%>
-			 		 		<td>
+			 		 		<%-- <td>
 			 		 			<a href="manager/admin/toDispatcherUI/${user.userId}">查看试题</a>
-			 		 		</td>
+			 		 		</td> --%>
 			 		 		<td>
-			 		 			<a href="manager/admin/toDispatcherUI/${user.userId}">设置试题</a>
+			 		 			<a href="manager/custTestPaper/queryAll/${user.userId}">设置试题</a>
 			 		 		</td>
 			 		 		<td>
 			 		 			<a href="manager/admin/exportReport">导出报告</a>
