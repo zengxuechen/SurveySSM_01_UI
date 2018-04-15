@@ -10,18 +10,18 @@
 
 	$(function(){
 		
-		$("input[name='adminName']").change(function(){
-			var admin = this ;
-			var adminName = this.value ;
-			var adminId = this.id ;
-			var url = "${pageContext.request.contextPath}/manager/admin/updateAdmin";
-			var data = {"adminName":adminName,"adminId":adminId,"time":new Date()}; 
+		$("input[name='userName']").change(function(){
+			var user = this ;
+			var userName = this.value ;
+			var userId = this.id ;
+			var url = "${pageContext.request.contextPath}/manager/user/updateAdmin";
+			var data = {"userName":userName,"userId":userId,"time":new Date()}; 
 			var callback = function(resultData){				
 				if(resultData.resultMessage == "true"){
 					alert("操作成功!");
 				}else{
 					alert("操作失败!");
-					admin.value = admin.defaultValue ;
+					user.value = user.defaultValue ;
 				}
 			};
 			var type = "json";
@@ -40,14 +40,14 @@
  	
  	<div id="mainDiv" class="borderDiv">
  		[查看账号]
- 		 <form action="manager/admin/batchDelete" method="post">
+ 		 <form action="manager/user/batchDelete" method="post">
 	 		 <table class="dataTable">
-	 		 	<c:if test="${empty adminList }">	 		 		
+	 		 	<c:if test="${empty userList }">	 		 		
 	 		 		<tr>
 		 		 		<td>没有查询到任何账号</td>
 		 		 	</tr>
 	 		 	</c:if>
-	 		 	<c:if test="${!empty adminList }">
+	 		 	<c:if test="${!empty userList }">
 		 		 	<tr>
 		 		 		<td>ID</td>
 		 		 		<td>账号名称</td>
@@ -55,18 +55,18 @@
 		 		 		<td>分配角色</td>
 		 		 	</tr>
 		 		 	
-		 		 	<c:forEach items="${adminList }" var="admin"> 
+		 		 	<c:forEach items="${userList }" var="user"> 
 		 		 		<tr>
-			 		 		<td>${admin.adminId }</td>
+			 		 		<td>${user.userId }</td>
 			 		 		<td>
-			 		 			<input id="${admin.adminId }" type="text" class="longInput" name="adminName" value="${admin.adminName }"/>
+			 		 			<input id="${user.userId }" type="text" class="longInput" name="userName" value="${user.userName }"/>
 			 		 		</td>
 			 		 		<td>
-			 		 			<input id="${admin.adminId }" class="adminBtn" type="checkbox" name="adminList" value="${admin.adminId }"/>
-			 		 			<label for="${admin.adminId }">删除</label>
+			 		 			<input id="${user.userId }" class="userBtn" type="checkbox" name="userList" value="${user.userId }"/>
+			 		 			<label for="${user.userId }">删除</label>
 			 		 		</td>
 			 		 		<td>
-			 		 			<a href="manager/admin/toDispatcherUI/${admin.adminId}">分配角色</a>
+			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配角色</a>
 			 		 		</td>
 			 		 	</tr>	 		 	
 		 		 	</c:forEach>

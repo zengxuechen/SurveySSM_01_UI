@@ -9,7 +9,7 @@
 </head>
 <body> 
 
-	<%@ include file="/res_jsp/manager_top.jsp" %>
+	<%@ include file="/res_jsp/guest_top.jsp" %>
  	
  	<div id="mainDiv" class="borderDiv">
  		[简答题答案列表] 

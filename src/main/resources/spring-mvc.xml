@@ -12,7 +12,6 @@
 	</context:component-scan>
  
 	<!-- 视图解析器 -->
-	<!-- /WEB-INF/guest/user_login.jsp -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
@@ -21,33 +20,27 @@
 	<mvc:default-servlet-handler />
 	<mvc:annotation-driven />
 
-
-	<!-- 
-		@RequestMapping("/guest/user/toLoginUI")
-		public String login(){		
-			return "guest/user_login";
-		}
-	 -->
-	<mvc:view-controller path="/guest/user/toLoginUI" view-name="guest/user_login"/>
+	<mvc:view-controller path="/guest/user/toLoginUI" view-name="index"/>
 	<mvc:view-controller path="/guest/user/toRegist" view-name="guest/user_regist"/>
 	<mvc:view-controller path="/guest/survey/toAddUI" view-name="guest/survey_addUI"/>
 	
 	
 	<mvc:view-controller path="/manager/admin/toMainUI" view-name="manager/admin_main"/>
-	<mvc:view-controller path="/manager/admin/toLoginUI" view-name="manager/admin_login"/>
+	<mvc:view-controller path="/manager/admin/toLoginUI" view-name="index"/>
 	
 	<mvc:view-controller path="/manager/auth/toAuthUI" view-name="manager/auth_authUI"/>
 	<mvc:view-controller path="/manager/role/toRoleUI" view-name="manager/role_roleUI"/>
 	<mvc:view-controller path="/manager/admin/toAdminUI" view-name="manager/admin_adminUI"/>
+	<mvc:view-controller path="/manager/admin/toGuestUI" view-name="manager/admin_guestUI"/>
 
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionAttribute" value="exception"></property>
 		<property name="exceptionMappings">
 			<props>
 				<!-- 前台guest用户使用 -->
-				<prop key="com.atguigu.survey.e.UserNameAlreadyExistsException">guest/user_regist</prop>
-				<prop key="com.atguigu.survey.e.UserLoginFailedExcption">guest/user_login</prop>
-				<prop key="com.atguigu.survey.e.UserOperationForbiddenException">guest/user_login</prop>
+				<prop key="com.atguigu.survey.e.UserNameAlreadyExistsException">manager/admin_guestUI</prop>
+				<prop key="com.atguigu.survey.e.UserLoginFailedExcption">./index</prop>
+				<prop key="com.atguigu.survey.e.UserOperationForbiddenException">index</prop>
 				<prop key="com.atguigu.survey.e.SaveFileTooLargeException">guest/survey_addUI</prop>
 				<prop key="com.atguigu.survey.e.SaveFileTypeInvailidException">guest/survey_addUI</prop>
 				<prop key="com.atguigu.survey.e.EditFileTooLargeException">guest/survey_editUI</prop>
@@ -59,8 +52,8 @@
 				<prop key="com.atguigu.survey.e.SurveyEmptyException">error</prop>
 				
 				<!-- 后台管理使用 -->
-				<prop key="com.atguigu.survey.e.AdminLoginFailedExcption">manager/admin_login</prop>
-				<prop key="com.atguigu.survey.e.AdminOperationForbiddenException">manager/admin_login</prop>
+				<prop key="com.atguigu.survey.e.AdminLoginFailedExcption">index</prop>
+				<prop key="com.atguigu.survey.e.AdminOperationForbiddenException">index</prop>
 				<prop key="com.atguigu.survey.e.AdminNameAlreadyExistsException">manager/admin_adminUI</prop>
 				<prop key="com.atguigu.survey.e.RemoveAuthFailedException">error</prop>
 				<prop key="com.atguigu.survey.e.RemoveRoleFailedException">error</prop>

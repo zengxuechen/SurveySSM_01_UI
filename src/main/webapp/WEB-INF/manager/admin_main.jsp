@@ -9,10 +9,10 @@
 </head>
 <body> 
 
-	<%@ include file="/res_jsp/manager_top.jsp" %>
+	<%@ include file="/res_jsp/guest_top.jsp" %>
  	
  	<div id="mainDiv" class="borderDiv">
- 		[欢迎光临正和永勤产品云后台] 	 		 	
+ 		欢迎光临正和永勤产品云后台	
  	</div>
 
  	<%@ include file="/res_jsp/manager_bottom.jsp" %>
