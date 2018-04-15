@@ -103,6 +103,29 @@
 				         </ul>
 					</li>
 					
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">公司部门<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+				            <li><atguigu:authTag servletPath="/manager/admin/toCompanyUI">
+								<a class="li_a dropMenu_a" href="manager/admin/toCompanyUI">添加公司</a>
+							</atguigu:authTag></li>
+							<li><atguigu:authTag servletPath="/manager/companyHandler/getAllCompany">
+								<a class="li_a dropMenu_a" href="manager/companyHandler/getAllCompany">公司列表</a>
+							</atguigu:authTag></li>
+				         </ul>
+					</li>
+					
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">职位信息<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+				            <li><atguigu:authTag servletPath="/manager/admin/toPositionUI">
+								<a class="li_a dropMenu_a" href="manager/admin/toPositionUI">添加职位</a>
+							</atguigu:authTag></li>
+							<li><atguigu:authTag servletPath="/manager/positionHandler/getAllPosition">
+								<a class="li_a dropMenu_a" href="manager/positionHandler/getAllPosition">职位列表</a>
+							</atguigu:authTag></li>
+				         </ul>
+					</li>
 					
 					
 					

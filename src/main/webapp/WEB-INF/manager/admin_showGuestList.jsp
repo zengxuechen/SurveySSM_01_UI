@@ -39,8 +39,7 @@
 	<%@ include file="/res_jsp/guest_top.jsp" %>
  	
  	<div id="mainDiv" class="borderDiv">
- 		[查看账号]
- 		 <form action="manager/user/batchDelete" method="post">
+ 		 <!-- <form action="manager/user/batchDelete" method="post"> -->
 	 		 <table class="table table-bordered table-hover table-striped">
 	 		 	<c:if test="${empty userList }">	 		 		
 	 		 		<tr>
@@ -99,14 +98,14 @@
 			 		 	</tr>	 		 	
 		 		 	</c:forEach>
 	 		 	
-		 		 	<tr>
+		 		 	<!-- <tr>
 		 		 		<td colspan="4">
 		 		 			<input type="submit" value="批量删除">
 		 		 		</td>
-		 		 	</tr>	
+		 		 	</tr> -->	
 	 		 	</c:if> 	
 	 		 </table>
- 		 </form>	 	
+ 		 <!-- </form> -->	 	
  	</div>
 
  	<%@ include file="/res_jsp/manager_bottom.jsp" %>

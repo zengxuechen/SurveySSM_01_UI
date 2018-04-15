@@ -33,6 +33,8 @@
 	<mvc:view-controller path="/manager/role/toRoleUI" view-name="manager/role_roleUI"/>
 	<mvc:view-controller path="/manager/admin/toAdminUI" view-name="manager/admin_adminUI"/>
 	<mvc:view-controller path="/manager/admin/toGuestUI" view-name="manager/admin_guestUI"/>
+	<mvc:view-controller path="/manager/admin/toCompanyUI" view-name="zhyq/admin_companyUI"/>
+	<mvc:view-controller path="/manager/admin/toPositionUI" view-name="zhyq/admin_positionUI"/>
 
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionAttribute" value="exception"></property>
