@@ -97,8 +97,8 @@
 								<a class="li_a dropMenu_a" href="manager/admin/toGuestUI">创建前台账号</a>
 							</atguigu:authTag></li>
 							
-							<li><atguigu:authTag servletPath="/manager/admin/showGuestList">
-								<a class="li_a dropMenu_a" href="manager/admin/showGuestList">查看前台账号</a>
+							<li><atguigu:authTag servletPath="/manager/customerRelationHandler/getAllUser">
+								<a class="li_a dropMenu_a" href="manager/customerRelationHandler/getAllUser">查看前台账号</a>
 							</atguigu:authTag></li>
 				         </ul>
 					</li>

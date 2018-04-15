@@ -49,15 +49,14 @@
 	 		 	<c:if test="${!empty userList }">
 		 		 	<tr>
 		 		 		<td>ID</td>
-		 		 		<td>账号名称</td>
+		 		 		<td>账号</td>
 		 		 		<td>公司</td>
 		 		 		<td>部门</td>
 		 		 		<td>职位</td>
-		 		 		<td>批量删除勾选</td>
-		 		 		<td>分配角色</td>
-		 		 		<td>分配公司</td>
-		 		 		<td>分配部门</td>
-		 		 		<td>分配测试</td>
+		 		 		<td>设置职位</td>
+		 		 		<td>查看试题</td>
+		 		 		<!-- <td>批量勾选</td> -->
+		 		 		<td>设置试题</td>
 		 		 		<td>导出报告</td>
 		 		 	</tr>
 		 		 	
@@ -65,32 +64,29 @@
 		 		 		<tr>
 			 		 		<td>${user.userId }</td>
 			 		 		<td>
-			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 			${user.userName }
 			 		 		</td>
 			 		 		<td>
-			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 			${user.companyNameCN }
 			 		 		</td>
 			 		 		<td>
-			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 			${user.departmentName }
 			 		 		</td>
 			 		 		<td>
-			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 			${user.positionName }
 			 		 		</td>
 			 		 		<td>
+			 		 			<a href="manager/admin/toDispatcherUI/${user.userId}">设置职位</a>
+			 		 		</td>
+			 		 		<%-- <td>
 			 		 			<input id="${user.userId }" class="userBtn" type="checkbox" name="userList" value="${user.userId }"/>
 			 		 			<label for="${user.userId }">删除</label>
+			 		 		</td> --%>
+			 		 		<td>
+			 		 			<a href="manager/admin/toDispatcherUI/${user.userId}">查看试题</a>
 			 		 		</td>
 			 		 		<td>
-			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配角色</a>
-			 		 		</td>
-			 		 		<td>
-			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配公司</a>
-			 		 		</td>
-			 		 		<td>
-			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配部门</a>
-			 		 		</td>
-			 		 		<td>
-			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配测试</a>
+			 		 			<a href="manager/admin/toDispatcherUI/${user.userId}">设置试题</a>
 			 		 		</td>
 			 		 		<td>
 			 		 			<a href="manager/admin/exportReport">导出报告</a>

@@ -11,7 +11,7 @@
 
 	<%@ include file="/res_jsp/guest_top.jsp" %>
  	<div class="container-fluid">
- 		<form action="manager/admin/saveGuest" method="post">
+ 		<form action="manager/customerRelationHandler/saveCustomerInfo" method="post">
 			<div class="row">
 				<div class="col-lg-4 col-xs-3"></div>
 				<div class="col-lg-4 col-xs-6" style="text-align:center;">
@@ -26,7 +26,7 @@
 					</div>
 					<div class="input-group" style="margin-left:35px;margin-top:30px;">
 					  <span class="input-group-addon" id="basic-addon2">密码</span>
-					  <input type="password" class="form-control" aria-describedby="basic-addon2" name="userPwd">
+					  <input type="password" class="form-control" aria-describedby="basic-addon2" name="password">
 					</div>
 					<!-- <div class="input-group" style="margin-left:35px;margin-top:30px;">
 					  <span class="input-group-addon" id="basic-addon1">姓名</span>
@@ -41,13 +41,14 @@
 					  <input type="text" class="form-control" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
 					</div> -->
 					<br><br>
-					<div>
+					<input type="hidden" name="company" value="false" id="companyFalse"/>
+					<!-- <div>
 						<input type="radio" name="company" value="true" id="companyTrue" checked="checked"/>
 						<label for="companyTrue">企业用户</label>
 						
 						<input type="radio" name="company" value="false" id="companyFalse"/>
 						<label for="companyFalse">个人用户</label>
-					</div>
+					</div> -->
 					<div>
 						<button type="submit" class="btn btn-primary" style="margin-top:30px;">保&nbsp;&nbsp;存</button>
 					</div>
