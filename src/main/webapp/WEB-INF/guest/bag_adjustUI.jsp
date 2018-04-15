@@ -42,7 +42,7 @@
  		<br>
  		<form action="guest/bag/doAdjust" method="post">
  			<input type="hidden" name="surveyId" value="${surveyId }"/>
- 			<table class="dataTable">
+ 			<table class="table table-bordered table-hover table-striped">
   				<c:if test="${exception!=null }">
 					<tr> 					
 						<td colspan="3">

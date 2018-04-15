@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[简答题答案列表] 
 
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
  			<c:forEach items="${textList }" var="textAnswer">
 	 			<tr>
 	 				<td>${textAnswer }</td>

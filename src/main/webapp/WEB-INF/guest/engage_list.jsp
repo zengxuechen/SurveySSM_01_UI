@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[显示可以参与的所有调查] 
  		<br>	
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
  			
  			<c:if test="${empty page.list }"> 				
  				<tr>

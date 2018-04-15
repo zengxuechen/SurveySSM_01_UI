@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		
  		[统计调查]
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
 
  			<c:if test="${empty page.list }">
  				<tr>

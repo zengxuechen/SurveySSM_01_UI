@@ -23,7 +23,7 @@
  			
  			<input type="hidden" name="pageNoStr" value="${pageNoStr }">
  			
- 			<table class="formTable">
+ 			<table class="table table-bordered">
  			
   				<c:if test="${exception!=null }">
 					<tr> 					

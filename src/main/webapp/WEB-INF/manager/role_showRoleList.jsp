@@ -35,7 +35,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[查看角色]
  		 <form action="manager/role/batchDelete" method="post">
-	 		 <table class="dataTable">
+	 		 <table class="table table-bordered table-hover table-striped">
 	 		 	<c:if test="${empty roleList }">	 		 		
 	 		 		<tr>
 		 		 		<td>没有查询到任何角色</td>

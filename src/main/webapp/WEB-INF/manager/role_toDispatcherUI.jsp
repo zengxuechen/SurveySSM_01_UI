@@ -15,7 +15,7 @@
  		[给角色分配权限] 	
  		<form action="manager/role/doDispatcherRole" method="post">
  			<input type="hidden" name="roleId" value="${roleId }"/>
-	 		<table class="dataTable">
+	 		<table class="table table-bordered table-hover table-striped">
 	 			<c:if test="${empty allAuthList }">
 	 				<tr>
 		 				<td>

@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[设计调查]
  		<br>
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
  			<tr>
  				<td colspan="4">调查基本信息</td>
  			</tr>
@@ -26,7 +26,7 @@
  			</tr>
  		</table>
  		
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
  		
  			<tr>
  				<td colspan="2">基本信息</td>
@@ -56,7 +56,7 @@
 		 			<tr>
 		 				<td></td>
 		 				<td>
-		 					<table class="dataTable">
+		 					<table class="table table-bordered table-hover table-striped">
 		 						<c:if test="${empty bag.questionSet }">
 		 							<tr>
 		 								<td>尚未创建问题</td>

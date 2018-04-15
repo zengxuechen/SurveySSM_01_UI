@@ -41,7 +41,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[查看账号]
  		 <form action="manager/user/batchDelete" method="post">
-	 		 <table class="dataTable">
+	 		 <table class="table table-bordered table-hover table-striped">
 	 		 	<c:if test="${empty userList }">	 		 		
 	 		 		<tr>
 		 		 		<td>没有查询到任何账号</td>
@@ -51,15 +51,31 @@
 		 		 	<tr>
 		 		 		<td>ID</td>
 		 		 		<td>账号名称</td>
-		 		 		<td>批量删除</td>
+		 		 		<td>公司</td>
+		 		 		<td>部门</td>
+		 		 		<td>职位</td>
+		 		 		<td>批量删除勾选</td>
 		 		 		<td>分配角色</td>
+		 		 		<td>分配公司</td>
+		 		 		<td>分配部门</td>
+		 		 		<td>分配测试</td>
+		 		 		<td>导出报告</td>
 		 		 	</tr>
 		 		 	
 		 		 	<c:forEach items="${userList }" var="user"> 
 		 		 		<tr>
 			 		 		<td>${user.userId }</td>
 			 		 		<td>
-			 		 			<input id="${user.userId }" type="text" class="longInput" name="userName" value="${user.userName }"/>
+			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 		</td>
+			 		 		<td>
+			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 		</td>
+			 		 		<td>
+			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
+			 		 		</td>
+			 		 		<td>
+			 		 			<input id="${user.userId }" type="text" name="userName" value="${user.userName }"/>
 			 		 		</td>
 			 		 		<td>
 			 		 			<input id="${user.userId }" class="userBtn" type="checkbox" name="userList" value="${user.userId }"/>
@@ -67,6 +83,18 @@
 			 		 		</td>
 			 		 		<td>
 			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配角色</a>
+			 		 		</td>
+			 		 		<td>
+			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配公司</a>
+			 		 		</td>
+			 		 		<td>
+			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配部门</a>
+			 		 		</td>
+			 		 		<td>
+			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配测试</a>
+			 		 		</td>
+			 		 		<td>
+			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">导出报告</a>
 			 		 		</td>
 			 		 	</tr>	 		 	
 		 		 	</c:forEach>

@@ -15,7 +15,7 @@
  		[给权限分配资源] 	
  		<form action="manager/auth/doDispatcherAuth" method="post">
  			<input type="hidden" name="authId" value="${authId }"/>
-	 		<table class="dataTable">
+	 		<table class="table table-bordered table-hover table-striped">
 	 			<c:if test="${empty queryAllRes }">
 	 				<tr>
 		 				<td>

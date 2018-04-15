@@ -20,7 +20,7 @@
  			
  			<input type="hidden" name="bagId" value="${currentBag.bagId }">
  			
-	 		<table class="dataTable">
+	 		<table class="table table-bordered table-hover table-striped">
 	 			<tr>
 	 				<td colspan="2">调查信息</td>
 	 			</tr>
@@ -35,7 +35,7 @@
 	 			</tr>
 	 		</table>
 	 		
-	 		<table class="dataTable">
+	 		<table class="table table-bordered table-hover table-striped">
 	 			<tr>
 	 				<td colspan="">当前包裹：${currentBag.bagName }</td>
 	 			</tr>

@@ -67,7 +67,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[资源列表]
  		<form action="manager/res/batchDelete" method="post">
-	 		<table class="dataTable">
+	 		<table class="table table-bordered table-hover table-striped">
 	 			<c:if test="${empty resList }">
 		 			没有查询到任何资源
 	 			</c:if>

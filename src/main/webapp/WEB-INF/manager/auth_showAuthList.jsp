@@ -35,7 +35,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[查看权限]
  		 <form action="manager/auth/batchDelete" method="post">
-	 		 <table class="dataTable">
+	 		 <table class="table table-bordered table-hover table-striped">
 	 		 	<c:if test="${empty authList }">	 		 		
 	 		 		<tr>
 		 		 		<td>没有查询到任何权限</td>

@@ -21,7 +21,7 @@
  			<!-- value:表示需要在表单上显示的值，同时也是提交的值 -->
  			<input type="hidden" name="surveyId" value="${surveyId }">
  			
- 			<table class="formTable">
+ 			<table class="table table-bordered">
  				<tr>
  					<td>包裹名称</td>
  					<td>

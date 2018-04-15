@@ -15,7 +15,7 @@
  		[给管理员分配角色] 	
  		<form action="manager/admin/doDispatcherRole" method="post">
  			<input type="hidden" name="adminId" value="${adminId }"/>
-	 		<table class="dataTable">
+	 		<table class="table table-bordered table-hover table-striped">
 	 			<c:if test="${empty allRoleList }">
 	 				<tr>
 		 				<td>

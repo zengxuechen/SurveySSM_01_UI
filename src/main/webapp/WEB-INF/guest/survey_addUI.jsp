@@ -15,7 +15,7 @@
  		[创建调查] 
  		
  		<form action="guest/survey/saveSurvey" method="post" enctype="multipart/form-data">
- 			<table class="formTable">
+ 			<table class="table table-bordered">
   				<c:if test="${exception!=null }">
 					<tr> 					
 						<td colspan="2">

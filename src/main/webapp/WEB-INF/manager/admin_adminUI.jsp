@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[创建账号]
  		<form action="manager/admin/saveAdmin" method="post">
- 			<table class="formTable"> 
+ 			<table class="table table-bordered"> 
  				<c:if test="${exception!=null }">
 	 				<tr>
 	 					<td colspan="2">${exception.message}</td>

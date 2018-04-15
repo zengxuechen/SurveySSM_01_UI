@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[统计大纲:${survey.surveyName }]
  		 
- 		 <table class="dataTable">
+ 		 <table class="table table-bordered table-hover table-striped">
  		 	<tr>
  		 		<td colspan="3">包裹列表</td>
  		 	</tr>
@@ -27,7 +27,7 @@
 	 		 		<tr>
 	 		 			<td></td>
 	 		 			<td>
-	 		 				<table class="dataTable">
+	 		 				<table class="table table-bordered table-hover table-striped">
 		 		 				<c:forEach items="${bag.questionSet }" var="question">
 			 		 					<tr>
 			 		 						<td>${question.questionName }</td>

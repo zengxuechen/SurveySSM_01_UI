@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[创建角色]
  		<form action="manager/role/saveRole" method="post">
- 			<table class="formTable"> 
+ 			<table class="table table-bordered"> 
  				<tr>
  					<td>角色名称</td>
  					<td>

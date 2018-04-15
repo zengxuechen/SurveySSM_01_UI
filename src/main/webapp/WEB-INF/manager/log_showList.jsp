@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[日志列表] 
  		
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
 	 		<c:if test="${empty page.list }">
 				<tr>
 					<td>暂时没有日志数据</td>

@@ -41,7 +41,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[查看账号]
  		 <form action="manager/admin/batchDelete" method="post">
-	 		 <table class="dataTable">
+	 		 <table class="table table-bordered table-hover table-striped">
 	 		 	<c:if test="${empty adminList }">	 		 		
 	 		 		<tr>
 		 		 		<td>没有查询到任何账号</td>

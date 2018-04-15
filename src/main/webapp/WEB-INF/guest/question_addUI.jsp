@@ -44,7 +44,7 @@
  			<input type="hidden" name="surveyId" value="${surveyId }">
  		
  		
- 			<table class="formTable">
+ 			<table class="table table-bordered">
  				<tr>
  					<td>问题名称</td>
  					<td>

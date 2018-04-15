@@ -14,7 +14,7 @@
  	<div id="mainDiv" class="borderDiv">
  		[移动/复制包裹 - 请选择一个调查进行包裹的移动/复制] 
  		<br>	
- 		<table class="dataTable">
+ 		<table class="table table-bordered table-hover table-striped">
  			
  			<tr>
  				<td>ID</td>

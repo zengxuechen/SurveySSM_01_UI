@@ -17,7 +17,7 @@
  		
  		<form action="guest/user/regist" method="post">
  			
- 			<table class="formTable">
+ 			<table class="table table-bordered">
  			
 				<c:if test="${exception!=null }">
 					<tr> 					

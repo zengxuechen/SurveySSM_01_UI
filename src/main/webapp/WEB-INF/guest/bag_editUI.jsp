@@ -20,7 +20,7 @@
  			<form:hidden path="bagId"/>
  			<form:hidden path="surveyId"/>
  			
- 			<table class="formTable">
+ 			<table class="table table-bordered">
  				<tr>
  					<td>包裹名称</td>
  					<td>

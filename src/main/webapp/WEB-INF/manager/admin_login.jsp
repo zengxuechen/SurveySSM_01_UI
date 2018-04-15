@@ -17,7 +17,7 @@
  		
  		<form action="manager/admin/login" method="post">
  			
- 			<table class="formTable">
+ 			<table class="table table-bordered">
  				<c:if test="${exception!=null }">
 					<tr> 					
 						<td colspan="2">
