@@ -94,7 +94,7 @@
 			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">分配测试</a>
 			 		 		</td>
 			 		 		<td>
-			 		 			<a href="manager/user/toDispatcherUI/${user.userId}">导出报告</a>
+			 		 			<a href="manager/admin/exportReport">导出报告</a>
 			 		 		</td>
 			 		 	</tr>	 		 	
 		 		 	</c:forEach>
