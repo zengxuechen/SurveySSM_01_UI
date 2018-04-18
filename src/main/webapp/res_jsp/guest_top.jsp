@@ -56,9 +56,9 @@
 				</c:if>
 				<c:if test="${sessionScope.loginAdmin!=null }">
 					
-					<li><atguigu:authTag servletPath="/manager/statistics/showAllAvailable">
+					<!-- <li><atguigu:authTag servletPath="/manager/statistics/showAllAvailable">
 						<a class="li_a" href="manager/statistics/showAllAvailable">统计调查</a>
-					</atguigu:authTag></li>
+					</atguigu:authTag></li> -->
 					
 					<li><atguigu:authTag servletPath="/manager/res/showAllRes">
 						<a class="li_a" href="manager/res/showAllRes">资源列表</a>

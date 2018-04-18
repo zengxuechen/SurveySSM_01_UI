@@ -34,7 +34,7 @@
  		
  	</div>
 	<br><br><br>
- 	<%@ include file="/res_jsp/manager_bottom.jsp" %>
+ 	
  	
 </body>
 </html>

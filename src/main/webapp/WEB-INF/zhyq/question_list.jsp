@@ -13,7 +13,7 @@
 	<%@ include file="/res_jsp/guest_top.jsp" %>
  	
  	<div id="mainDiv" class="borderDiv">
- 		答题中...
+ 		<span style="font-size:20px">请根据问题描述选择正确的答案</span>
  		<br/>
  		<br/>
  		<table class="table">
@@ -25,13 +25,13 @@
 					<tr>
 						<td>
 							<br/>
-							<div style="margin-left:100px;font-size:16px;text-align:left;"><span>${question.questionTypeName}：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${question.questionContent }</span></div>
+							<div style="font-size:16px;text-align:center;">${myStatus.index+1}.&nbsp;&nbsp;<span>${question.questionTypeName}：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${question.questionContent }</span></div>
 							<br/>
-							<div style="margin-left:100px;font-size:16px;text-align:left;">
+							<div style="font-size:16px;text-align:center;">
 								<c:set var="fids" value="${fn:split(question.options, '@')}" />
 								<c:set var="maps" value="${fn:split(question.optionsBitmap, '@')}" />  
 	                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-	                             	<input style="margin-left:20px;" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />&nbsp;&nbsp; ${option}     
+	                             	${status.index+1}.&nbsp;&nbsp;<input style="margin-right:30px;" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />&nbsp;&nbsp; ${option}    
 	                            </c:forTokens>
 	                        </div>
 	                        <br/>
@@ -55,8 +55,6 @@
 			</c:if>
 		</div>
  	</div>
-
- 	<%@ include file="/res_jsp/guest_bottom.jsp" %>
  	
 </body>
 </html>
@@ -71,7 +69,7 @@ $(function(){
 		if(names != undefined){
 			console.log(names);
 			if("_" != resultArr[names.split("_")[1]]){
-				console.log(resultArr[names.split("_")[1]]+"1111");
+				//console.log(resultArr[names.split("_")[1]]+"1111");
 				$("input[name="+names+"][value="+resultArr[names.split("_")[1]]+"]").attr("checked", "checked");
 			}
 		}
@@ -80,31 +78,31 @@ $(function(){
 
 function goPage(typeCode, paperId, questionIds, pageNo){
 	
-	console.log(resultArr);
+	//console.log(resultArr);
 	$("input").each(function(){
 		var names = $(this).attr('name');
 		if(names != undefined && ""!= resultArr[names.split("_")[1]]){
-			console.log(names);
-			console.log(undefined == $("input[name="+names+"][checked='checked']").val())
+			//console.log(names);
+			//console.log(undefined == $("input[name="+names+"][checked='checked']").val())
 			if(undefined != $("input[name="+names+"][checked='checked']").val()){
 				resultArr[names.split("_")[1]] = $("input[name="+names+"][checked]").val();  //获取被选中Radio的Value值
 			}
 			
 		}
-		console.log(resultArr);
+		//console.log(resultArr);
 		result = "";
 		for(var i=0; i<resultArr.length; i++){
 			result += resultArr[i]+"@";
 		}
 		result = result.substr(0, result.length-1);
-		console.log(result);
+		//console.log(result);
 	});
 
 	window.location.href="guest/selectQuestionLib/queryExQuestionByIds/"+typeCode+"/"+paperId+"/"+questionIds+"/"+pageNo+"/"+result;
 }
 
 function checkOrNot(_this){
-	console.log(_this.attr("checked"))
+	//console.log(_this.attr("checked"))
 	if(undefined == _this.attr("checked")){
 		_this.attr("checked", "checked").siblings().removeAttr("checked");
 	}
@@ -112,12 +110,12 @@ function checkOrNot(_this){
 
 function saveResult(typeCode, paperId, result){
 	
-	console.log(resultArr);
+	//console.log(resultArr);
 	$("input").each(function(){
 		var names = $(this).attr('name');
 		if(names != undefined && ""!= resultArr[names.split("_")[1]]){
-			console.log(names);
-			console.log(undefined == $("input[name="+names+"][checked='checked']").val())
+			//console.log(names);
+			//console.log($("input[name="+names+"][checked='checked']").val())
 			if(undefined != $("input[name="+names+"][checked='checked']").val()){
 				resultArr[names.split("_")[1]] = $("input[name="+names+"][checked]").val();  //获取被选中Radio的Value值
 			}
@@ -129,7 +127,7 @@ function saveResult(typeCode, paperId, result){
 			result += resultArr[i]+"@";
 		}
 		result = result.substr(0, result.length-1);
-		console.log(result);
+		//console.log(result);
 	});
 	if(result.indexOf("_")>-1){
 		alert("您还没有做完哦，请答完再点击完成");
