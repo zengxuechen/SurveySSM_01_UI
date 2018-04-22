@@ -1,88 +1,88 @@
 		<br style="clear:both; mso-break-type:section-break; page-break-before:always" />
 		<div>
-			<h2 style="margin:7.8pt 0pt; text-align:center; page-break-after:avoid; page-break-inside:avoid; widows:0"><span style=" font-size:15pt; bold">����������������</span></h2>
-			<p class="pStart">��������֢״����������Ϊ�����������ڸо���������˼ά����Ϊֱ������ϰ�ߡ��˼ʹ�ϵ����ʳ˯�ߵȷ������������֢״����Ƶġ�SCL-90��ͳ��ָ����ҪΪ������ֺܷ����ӷ֡�</p>
-			<p class="pStart">�ܷ���Ŀ��</p>
-			<p class="pStart">��1���ܾ��֣��ܷ�/90����ʾ����������������ܼ��ߵ����Ҹо�λ��1-5�������һ����ֵ�̶��ϡ�</p>
-			<p class="pStart">��2��������Ŀ��������֡�2����Ŀ������ʾ�ܼ����ڶ�����Ŀ�ϳ��С���״����</p>
-			<p class="pStart">��3������֢״���֣����ܷ֣�������Ŀ�����ܷ֣�/������Ŀ������ʾ�ܼ����ڡ���֢״����Ŀ�е�ƽ���÷֡���ӳ�ܼ������Ҹо����ѵ���Ŀ�������س̶Ⱦ��������ĸ���Χ��</p>
-			<p class="pStart">����������9�����ӣ������廯��ǿ��֢״���˼ʹ�ϵ���С����������ǡ��жԡ��ֲ���ƫִ�;����ԡ�ͨ�����ӷֿɷ�ӳ������ĳ�����֢״�������������ĳһ���ӵĵ÷ִ���2ʱ���������������֣�������ڸ÷���ͺ��п����������������ա�</p>
+			<h2 style="margin:7.8pt 0pt; text-align:center; page-break-after:avoid; page-break-inside:avoid; widows:0"><span style=" font-size:15pt; bold">${chapter}、心理健康测评</span></h2>
+			<p class="pStart">心理健康症状自评量表是为了评定个体在感觉、情绪、思维、行为直至生活习惯、人际关系、饮食睡眠等方面的心理健康症状而设计的。SCL-90的统计指标主要为两项，即总分和因子分。</p>
+			<p class="pStart">总分项目：</p>
+			<p class="pStart">（1）总均分：总分/90，表示从总体情况看，该受检者的自我感觉位于1-5级间的哪一个分值程度上。</p>
+			<p class="pStart">（2）阳性项目数：单项分≥2的项目数，表示受检者在多少项目上呈有“病状”。</p>
+			<p class="pStart">（3）阳性症状均分：（总分－阴性项目数的总分）/阳性项目数，表示受检者在“有症状”项目中的平均得分。反映受检者自我感觉不佳的项目，其严重程度究竟介于哪个范围。</p>
+			<p class="pStart">该量表包括9个因子，即躯体化、强迫症状、人际关系敏感、抑郁、焦虑、敌对、恐怖、偏执和精神病性。通过因子分可反映出个体某方面的症状情况。当个体在某一因子的得分大于2时，即超出正常均分，则个体在该方面就很有可能有心理健康风险。</p>
 			<br/>
 			<table cellspacing="0" cellpadding="0">
 				<tr>
-					<td colspan="2">֢״</td>
-					<td style="width:50pt">��׼ֵ</td>
-					<td style="width:50pt">����ֵ</td>
-					<td>֢״����</td>
+					<td colspan="2">症状</td>
+					<td style="width:50pt">标准值</td>
+					<td style="width:50pt">测评值</td>
+					<td>症状描述</td>
 				</tr>
 				<tr>
-					<td rowspan="3" style="width:16pt">��֢״</td>
-					<td>�ܾ���</td>
-					<td>1.5��</td>
-					<td>${score_ALL_AVERAGE}��</td>
+					<td rowspan="3" style="width:16pt">总症状</td>
+					<td>总均分</td>
+					<td>1.5分</td>
+					<td>${score_ALL_AVERAGE}分</td>
 					<td>${desc_ALL_AVERAGE}</td>
 				</tr>
 				<tr>
-					<td>������Ŀ��</td>
-					<td>43��</td>
-					<td>${count_ALL_POSITIVENUM}��</td>
-					<td rowspan="2">��ȫ����ģ�����������Ŀ������43�������֢״���ֳ���2�֣��迼��ɸѡ���ԣ����һ����顣</td>
+					<td>阳性项目数</td>
+					<td>43个</td>
+					<td>${count_ALL_POSITIVENUM}个</td>
+					<td rowspan="2">按全国常模结果，阳性项目数超过43项，或阳性症状均分超过2分，需考虑筛选阳性，需进一步检查。</td>
 				</tr>
 				<tr>
-					<td>����֢״����</td>
-					<td>2��</td>
-					<td>${score_ALL_POSITIVEAVERAGE}��</td>
+					<td>阳性症状均分</td>
+					<td>2分</td>
+					<td>${score_ALL_POSITIVEAVERAGE}分</td>
 				</tr>
 				<tr>
-					<td rowspan="10" style="width:16pt">��֢״����</td>
-					<td>���廯</td>
-					<td rowspan="10">2��</td>
-					<td style="background-color:#bfbfbf;">${score_PART_SOMATIZATION}��</td>
+					<td rowspan="10" style="width:16pt">分症状均分</td>
+					<td>躯体化</td>
+					<td rowspan="10">2分</td>
+					<td style="background-color:#bfbfbf;">${score_PART_SOMATIZATION}分</td>
 					<td>${symptomDesc_PART_SOMATIZATION}</td>
 				</tr>
 				<tr>
-					<td>ǿ��֢״</td>
-					<td style="background-color:#bfbfbf;">${score_PART_OBSESSION}��</td>
+					<td>强迫症状</td>
+					<td style="background-color:#bfbfbf;">${score_PART_OBSESSION}分</td>
 					<td>${symptomDesc_PART_OBSESSION}</td>
 				</tr>
 				<tr>
-					<td>�˼ʹ�ϵ����</td>
-					<td style="background-color:#bfbfbf;">${score_PART_INTERPERSONAL}��</td>
+					<td>人际关系敏感</td>
+					<td style="background-color:#bfbfbf;">${score_PART_INTERPERSONAL}分</td>
 					<td>${symptomDesc_PART_INTERPERSONAL}</td>
 				</tr>
 				<tr>
-					<td>����</td>
-					<td style="background-color:#bfbfbf;">${score_PART_DEPRESSED}��</td>
+					<td>抑郁</td>
+					<td style="background-color:#bfbfbf;">${score_PART_DEPRESSED}分</td>
 					<td>${symptomDesc_PART_DEPRESSED}</td>
 				</tr>
 				<tr>
-					<td>����</td>
-					<td>${score_PART_ANXIOUS}��</td>
+					<td>焦虑</td>
+					<td>${score_PART_ANXIOUS}分</td>
 					<td>${symptomDesc_PART_ANXIOUS}</td>
 				</tr>
 				<tr>
-					<td>�ж�</td>
-					<td>${score_PART_HOSTILE}��</td>
+					<td>敌对</td>
+					<td>${score_PART_HOSTILE}分</td>
 					<td>${symptomDesc_PART_HOSTILE}</td>
 				</tr>
 				<tr>
-					<td>�ֲ�</td>
-					<td>${score_PART_TERROR}��</td>
+					<td>恐怖</td>
+					<td>${score_PART_TERROR}分</td>
 					<td>${symptomDesc_PART_TERROR}</td>
 				</tr>
 				<tr>
-					<td>ƫִ</td>
-					<td>${score_PART_PARANOID}��</td>
+					<td>偏执</td>
+					<td>${score_PART_PARANOID}分</td>
 					<td>${symptomDesc_PART_PARANOID}</td>
 				</tr>
 				<tr>
-					<td>������</td>
-					<td>${score_PART_PSYCHOSIS}��</td>
+					<td>精神病性</td>
+					<td>${score_PART_PSYCHOSIS}分</td>
 					<td>${symptomDesc_PART_PSYCHOSIS}</td>
 				</tr>
 				<tr>
-					<td>������˯�߼���ʳ�����</td>
-					<td style="background-color:#bfbfbf;">${score_PART_OTHER}��</td>
+					<td>其他（睡眠及饮食情况）</td>
+					<td style="background-color:#bfbfbf;">${score_PART_OTHER}分</td>
 					<td>${symptomDesc_PART_OTHER}</td>
 				</tr>
 			</table>
