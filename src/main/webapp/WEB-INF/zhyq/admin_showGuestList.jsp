@@ -89,7 +89,7 @@
 			 		 			<a href="manager/custTestPaper/queryAll/${user.userId}">设置试题</a>
 			 		 		</td>
 			 		 		<td>
-			 		 			<a href="manager/admin/exportReport">导出报告</a>
+			 		 			<a href="manager/admin/exportReport/${user.userId}">导出报告</a>
 			 		 		</td>
 			 		 	</tr>	 		 	
 		 		 	</c:forEach>
