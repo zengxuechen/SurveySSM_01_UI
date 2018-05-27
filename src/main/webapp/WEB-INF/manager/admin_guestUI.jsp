@@ -41,14 +41,13 @@
 					  <input type="text" class="form-control" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
 					</div> -->
 					<br><br>
-					<input type="hidden" name="company" value="false" id="companyFalse"/>
-					<!-- <div>
+					<div>
 						<input type="radio" name="company" value="true" id="companyTrue" checked="checked"/>
 						<label for="companyTrue">企业用户</label>
 						
 						<input type="radio" name="company" value="false" id="companyFalse"/>
 						<label for="companyFalse">个人用户</label>
-					</div> -->
+					</div>
 					<div>
 						<button type="submit" class="btn btn-primary" style="margin-top:30px;">保&nbsp;&nbsp;存</button>
 					</div>

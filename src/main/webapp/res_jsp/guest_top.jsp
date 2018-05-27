@@ -40,9 +40,34 @@
 				            <li><a href="guest/custTestPaper/queryPaperTypeByCode/PA_PCC/1">管理</a></li>
 				         </ul>
 					</li> -->
+					<c:if test="${!sessionScope.loginUser.company }">
+		        		<li><a href="guest/customerTestHandler/selectCustomerTestPaperByUesrId/${sessionScope.loginUser.userId}">我的考试</a></li>
+					</c:if>
 					
-		        	<li><a href="guest/customerTestHandler/selectCustomerTestPaperByUesrId/${sessionScope.loginUser.userId}">我的考试</a></li>
-					
+					<c:if test="${sessionScope.loginUser.company }">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">职能信息<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+					            <li><atguigu:authTag servletPath="/manager/admin/toPositionUI">
+									<a class="li_a dropMenu_a" href="guest/customerTestHandler/toPositionUI">添加职能</a>
+								</atguigu:authTag></li>
+								<li><atguigu:authTag servletPath="/manager/positionHandler/getAllPosition">
+									<a class="li_a dropMenu_a" href="manager/positionHandler/getAllPosition">职能列表</a>
+								</atguigu:authTag></li>
+					         </ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">岗位信息<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+					            <li><atguigu:authTag servletPath="/manager/admin/toPositionUI">
+									<a class="li_a dropMenu_a" href="manager/admin/toPositionUI">添加岗位</a>
+								</atguigu:authTag></li>
+								<li><atguigu:authTag servletPath="/manager/positionHandler/getAllPosition">
+									<a class="li_a dropMenu_a" href="manager/positionHandler/getAllPosition">岗位列表</a>
+								</atguigu:authTag></li>
+					         </ul>
+						</li>
+					</c:if>
 					<!-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的报告<span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -54,7 +79,7 @@
 				         </ul>
 					</li> -->
 				</c:if>
-				<c:if test="${sessionScope.loginAdmin!=null }">
+				<c:if test="${sessionScope.loginAdmin!=null}">
 					
 					<!-- <li><atguigu:authTag servletPath="/manager/statistics/showAllAvailable">
 						<a class="li_a" href="manager/statistics/showAllAvailable">统计调查</a>
@@ -82,6 +107,11 @@
 							<li><atguigu:authTag servletPath="/manager/role/showRoleList">
 								<a class="li_a dropMenu_a" href="manager/role/showRoleList">查看角色</a>
 							</atguigu:authTag></li>
+							
+							<li><atguigu:authTag servletPath="/manager/log/showLogList">
+							<a class="li_a" href="manager/log/showLogList">查看日志</a>
+							</atguigu:authTag></li>
+							
 				         </ul>
 					</li>
 					
@@ -129,14 +159,6 @@
 							</atguigu:authTag></li>
 				         </ul>
 					</li>
-					
-					
-					
-					
-					<li><atguigu:authTag servletPath="/manager/log/showLogList">
-						<a class="li_a" href="manager/log/showLogList">查看日志</a>
-					</atguigu:authTag></li>
-					
 				</c:if>
 		      </ul>
 			
