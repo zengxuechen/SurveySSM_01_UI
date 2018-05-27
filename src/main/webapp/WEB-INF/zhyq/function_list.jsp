@@ -11,7 +11,7 @@
 <body> 
 
 	<%@ include file="/res_jsp/guest_top.jsp" %>
- 	
+ 	1111111111111
  	<div id="mainDiv" class="borderDiv">
  		<table class="table">
 	 		<tr>
