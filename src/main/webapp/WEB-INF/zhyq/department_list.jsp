@@ -27,7 +27,7 @@
 					<tr>
 						<td>${department.id }</td>
 						<td>${department.departmentName }</td>
-						<td><a href="guest/custFunctionLevelMapHandler/getFunctionListByFunctionId/${department.id}">查看职能</a></td>
+						<td><a href="guest/custFunctionLevelMapHandler/getFunctionListByFunctionId/${department.departmentId}/0">查看职能</a></td>
 					</tr>
 				</c:forEach>
             </c:if>
