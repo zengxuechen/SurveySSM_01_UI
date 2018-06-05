@@ -23,7 +23,7 @@
             <c:if test="${!empty paperList  && fn:length(paperList) > 0}">
             	<c:forEach items="${paperList}" var="test">
 					<tr>
-						<td><a href="guest/selectQuestionLib/queryExQuestionByIds/${test.testTypeCode}/${test.id }/${test.questionIds }/1/null" >${test.testPaperName }</a></td>
+						<td><a href="guest/selectQuestionLib/queryExQuestionByIds/${test.testTypeCode}/${test.id }/${test.questionIds }/1/null/1" >${test.testPaperName }</a></td>
 					</tr>
 				</c:forEach>
             </c:if>

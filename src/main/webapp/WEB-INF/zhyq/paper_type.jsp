@@ -31,7 +31,7 @@
             <c:if test="${!empty page.list  && fn:length(page.list) > 0}">
             	<c:forEach items="${page.list}" var="test">
 					<tr>
-						<td><a href="guest/selectQuestionLib/queryExQuestionByIds/${test.testTypeCode}/${test.id }/${test.questionIds }/1/null" >${test.testPaperName }</a></td>
+						<td><a href="guest/selectQuestionLib/queryExQuestionByIds/${test.testTypeCode}/${test.id }/${test.questionIds }/1/null/1" >${test.testPaperName }</a></td>
 					</tr>
 				</c:forEach>
             </c:if>

@@ -4,10 +4,10 @@
 <div class="container-fluid" style="height:55px;">
 
 	<!-- 公司LOGO以及名称和宗旨 -->
-	<div class="col-lg-1 col-xs-12">
-		<div class="logoDiv"></div>
+	<div class="col-lg-2 col-xs-12">
+		<div class="logoDiv" style="margin-left:auto;margin-right:auto;"></div>
 	</div>
-	<div class="col-lg-11 col-xs-12">
+	<div class="col-lg-10 col-xs-12">
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Collect the nav links, forms, and other content for toggling -->

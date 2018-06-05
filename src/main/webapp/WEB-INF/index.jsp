@@ -26,13 +26,13 @@
 								${exception.message }
 							</div>
 						</c:if>
-						<div class="input-group" style="margin-left:35px;margin-top:30px;">
+						<div class="input-group" style="margin-left:20px;margin-top:30px;">
 						  <span class="input-group-addon" id="basic-addon1">账号</span>
-						  <input type="text" class="form-control" style="width:200px;" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
+						  <input type="text" class="form-control" style="width:80%;" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
 						</div>
-						<div class="input-group" style="margin-left:35px;margin-top:30px;">
+						<div class="input-group" style="margin-left:20px;margin-top:30px;">
 						  <span class="input-group-addon" id="basic-addon2">密码</span>
-						  <input type="password" class="form-control" style="width:200px;" aria-describedby="basic-addon2" name="userPwd">
+						  <input type="password" class="form-control" style="width:80%;" aria-describedby="basic-addon2" name="userPwd">
 						</div>
 						 <button type="submit" class="btn btn-primary" style="margin-top:30px;">登&nbsp;&nbsp;陆</button>
 					</div>
