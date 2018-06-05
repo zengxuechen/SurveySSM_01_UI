@@ -3,18 +3,11 @@
 
 <div class="container-fluid" style="height:55px;">
 
-	<!-- 公司名称和宗旨 -->
-	<div id="logoDiv" class="col-lg-3 col-xs-12">
-		<div class="row" style="line-height:24px;">
-			<div class="col-lg-6 col-xs-6 company_cn">正和永勤</div>
-			<div class="col-lg-6 col-xs-6 watchword_cn">咨询顾问专家</div>
-		</div>
-		<div class="row" style="line-height:20px;">
-			<div class="col-lg-6 col-xs-6 company_en">talent capital</div>
-			<div class="col-lg-6 col-xs-6 watchword_en">excellent consultant</div>
-		</div>
+	<!-- 公司LOGO以及名称和宗旨 -->
+	<div class="col-lg-1 col-xs-12">
+		<div class="logoDiv"></div>
 	</div>
-	<div class="col-lg-9 col-xs-12">
+	<div class="col-lg-11 col-xs-12">
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +34,7 @@
 				         </ul>
 					</li> -->
 					<c:if test="${!sessionScope.loginUser.company }">
-		        		<li><a href="guest/customerTestHandler/selectCustomerTestPaperByUesrId/${sessionScope.loginUser.userId}">我的考试</a></li>
+		        		<li><a href="guest/customerTestHandler/selectCustomerTestPaperByUesrId/${sessionScope.loginUser.userId}">我的测评</a></li>
 					</c:if>
 					
 					<c:if test="${sessionScope.loginUser.company }">

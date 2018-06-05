@@ -14,10 +14,8 @@ a:HOVER {
 }
 
 .borderDiv {
-	/* border: 1px solid black; */
-	-moz-border-radius: 15px;      /* Gecko browsers */
-	-webkit-border-radius: 15px;   /* Webkit browsers */
-	border-radius:15px;            /* W3C syntax */
+	margin:30px;
+	padding:40px;
 }
 
 .formTable {
@@ -70,21 +68,17 @@ a:HOVER {
 }
 
 /*==============================定制区=============================*/
-.company_cn{
-	color:#53A4F4;
-	font-size:24px;
-	border-right:solid 2px #9E9E9E;
+.logoDiv{
+	width:153px;
+	height:52px;
+	background-image:url('/res_static/logo.gif');
+	background-repeat:no-repeat;
 }
 
 .company_en{
 	color:#53A4F4;
 	font-size:18px;
 	border-right:solid 2px #9E9E9E;
-}
-
-.watchword_cn{
-	color:#9E9E9E;
-	font-size:20px;
 }
 
 .watchword_en{

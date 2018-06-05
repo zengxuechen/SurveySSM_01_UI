@@ -13,7 +13,7 @@
 	<%@ include file="/res_jsp/guest_top.jsp" %>
  	
  	<div id="mainDiv" class="borderDiv">
- 		点击相应的试卷名称即可参加考试
+ 		点击相应的问卷名称即可参加测评
  		<br/><br/>
  		<table class="table">
  			<c:if test="${empty paperList }"> 				

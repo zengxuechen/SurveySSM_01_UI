@@ -13,7 +13,7 @@
 	<%@ include file="/res_jsp/guest_top.jsp" %>
  	
  	<div id="mainDiv" class="borderDiv">
- 		保存成功，谢谢您的参与，您还可以点击我的考试继续参加剩余考试
+ 		保存成功，谢谢您的参与，您还可以点击我的测评继续参加剩余考试
  	</div>
 
  	<%@ include file="/res_jsp/guest_bottom.jsp" %>

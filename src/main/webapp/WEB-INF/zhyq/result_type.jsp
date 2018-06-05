@@ -18,8 +18,8 @@
  		<table class="table">
  			<tr>
 				<td>选择</td>
-				<td>试卷类型</td>
-				<td>试卷名称</td>
+				<td>问卷类型</td>
+				<td>问卷名称</td>
 			</tr>
  			<c:if test="${empty list }"> 				
  				<tr><td colspan="3">没有可以导出报告的测评结果</td></tr>
