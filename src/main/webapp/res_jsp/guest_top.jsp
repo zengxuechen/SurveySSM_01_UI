@@ -34,7 +34,7 @@
 				         </ul>
 					</li> -->
 					<c:if test="${!sessionScope.loginUser.company }">
-		        		<li><a href="guest/customerTestHandler/selectCustomerTestPaperByUesrId/${sessionScope.loginUser.userId}">我的测评</a></li>
+		        		<li><a href="guest/customerTestHandler/selectCustomerTestPaperByUesrId">我的测评</a></li>
 					</c:if>
 					
 					<c:if test="${sessionScope.loginUser.company }">

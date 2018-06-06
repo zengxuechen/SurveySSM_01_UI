@@ -6,32 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/res_jsp/base.jsp" %>
-<script type="text/javascript">
-
-	$(function(){
-		
-		$("input[name='userName']").change(function(){
-			var user = this ;
-			var userName = this.value ;
-			var userId = this.id ;
-			var url = "${pageContext.request.contextPath}/manager/user/updateAdmin";
-			var data = {"userName":userName,"userId":userId,"time":new Date()}; 
-			var callback = function(resultData){				
-				if(resultData.resultMessage == "true"){
-					alert("操作成功!");
-				}else{
-					alert("操作失败!");
-					user.value = user.defaultValue ;
-				}
-			};
-			var type = "json";
-			$.post(url,data,callback,type);
-		});
-		
-	});
-	
-
-</script>
 
 </head>
 <body> 
@@ -50,11 +24,10 @@
 		 		 	<tr>
 		 		 		<td>ID</td>
 		 		 		<td>账号</td>
-		 		 		<td>公司</td>
-		 		 		<td>部门</td>
-		 		 		<td>职位</td>
+		 		 		<td>公司/部门/职位</td>
+		 		 		<td>已分配试题</td>
 		 		 		<td>设置职位</td>
-		 		 		<!-- <td>查看试题</td> -->
+		 		 		
 		 		 		<!-- <td>批量勾选</td> -->
 		 		 		<td>设置试题</td>
 		 		 		<td>导出报告</td>
@@ -67,16 +40,15 @@
 			 		 			${user.userName }
 			 		 		</td>
 			 		 		<td>
-			 		 			${user.companyNameCN }
+			 		 			${user.companyNameCN } / ${user.departmentName } / ${user.positionName }
 			 		 		</td>
 			 		 		<td>
-			 		 			${user.departmentName }
+			 		 			<c:forEach items="${user.paperList}" var="paper" varStatus="mystatus"> 
+			 		 				<span>${paper.testPaperName }</span><c:if test="${!mystatus.last}"><br></c:if>
+			 		 			</c:forEach>
 			 		 		</td>
 			 		 		<td>
-			 		 			${user.positionName }
-			 		 		</td>
-			 		 		<td>
-			 		 			<a href="manager/admin/toDispatcherUI/${user.userId}">设置职位</a>
+			 		 			<a href="manager/companyHandler/queryAll/${user.userId}">设置职位</a>
 			 		 		</td>
 			 		 		<%-- <td>
 			 		 			<input id="${user.userId }" class="userBtn" type="checkbox" name="userList" value="${user.userId }"/>

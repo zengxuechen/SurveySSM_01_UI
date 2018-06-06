@@ -33,7 +33,7 @@
 		</div> -->
 	</c:if>
  	<div id="mainDiv" class="borderDiv">
- 		<div style="font-size:20px;">阅读问题并评估以下陈述符合你实际想法的程度：</div>
+ 		<div style="font-size:20px;">阅读问题并评估以下陈述符合你实际想法或情况的程度：</div>
  		<br>
  		<%-- <div class="col-lg-8 col-xs-8"></div>
  		<div class="col-lg-4 col-xs-8">
@@ -48,7 +48,7 @@
 					</c:forEach>
 			</div>
 		</div> --%>
- 		<table class="table table-striped">
+ 		<table class="table table-striped table-hover table-condensed">
  			<c:if test="${empty page.list }"> 				
  				<tr><td>没有可以参与的测评题目</td></tr>
  			</c:if>
@@ -62,7 +62,7 @@
 								<div class="col-lg-4 col-xs-4">
 									<div style="font-size:16px;text-align:center;">
 			                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-			                             	<span style="width:60px;display:inline-block">${option}</span>    
+			                             	<span style="font-size:14px;width:100px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
 			                            </c:forTokens>
 			                        </div>
 								</div>
@@ -83,7 +83,7 @@
 									<c:set var="fids" value="${fn:split(question.options, '@')}" />
 									<c:set var="maps" value="${fn:split(question.optionsBitmap, '@')}" />  
 		                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-		                             	<input style="width:60px;display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
+		                             	<input style="width:100px;display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
 		                            </c:forTokens>
 		                        </div>
 							</div>

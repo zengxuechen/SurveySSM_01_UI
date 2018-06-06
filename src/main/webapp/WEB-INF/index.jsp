@@ -28,7 +28,7 @@
 						</c:if>
 						<div class="input-group" style="margin-left:20px;margin-top:30px;">
 						  <span class="input-group-addon" id="basic-addon1">账号</span>
-						  <input type="text" class="form-control" style="width:80%;" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
+						  <input type="text" class="form-control" style="width:80%;" aria-describedby="basic-addon1" name="userName">
 						</div>
 						<div class="input-group" style="margin-left:20px;margin-top:30px;">
 						  <span class="input-group-addon" id="basic-addon2">密码</span>

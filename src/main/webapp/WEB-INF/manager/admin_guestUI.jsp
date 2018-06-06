@@ -28,18 +28,18 @@
 					  <span class="input-group-addon" id="basic-addon2">密码</span>
 					  <input type="password" class="form-control" aria-describedby="basic-addon2" name="password">
 					</div>
-					<!-- <div class="input-group" style="margin-left:35px;margin-top:30px;">
+					<div class="input-group" style="margin-left:35px;margin-top:30px;">
 					  <span class="input-group-addon" id="basic-addon1">姓名</span>
-					  <input type="text" class="form-control" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
+					  <input type="text" class="form-control" placeholder="姓名" aria-describedby="basic-addon1" name="userNameCn">
 					</div>
 					<div class="input-group" style="margin-left:35px;margin-top:30px;">
 					  <span class="input-group-addon" id="basic-addon1">手机</span>
-					  <input type="text" class="form-control" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
+					  <input type="text" class="form-control" placeholder="手机号" aria-describedby="basic-addon1" name="phone">
 					</div>
 					<div class="input-group" style="margin-left:35px;margin-top:30px;">
 					  <span class="input-group-addon" id="basic-addon1">邮箱</span>
-					  <input type="text" class="form-control" placeholder="账号/手机号/邮箱" aria-describedby="basic-addon1" name="userName">
-					</div> -->
+					  <input type="text" class="form-control" placeholder="邮箱" aria-describedby="basic-addon1" name="email">
+					</div>
 					<br><br>
 					<div>
 						<input type="radio" name="company" value="true" id="companyTrue" checked="checked"/>
