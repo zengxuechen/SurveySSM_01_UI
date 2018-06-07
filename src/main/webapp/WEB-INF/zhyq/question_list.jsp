@@ -62,7 +62,7 @@
 								<div class="col-lg-4 col-xs-4">
 									<div style="font-size:16px;text-align:center;">
 			                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-			                             	<span style="font-size:14px;width:100px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
+			                             	<span style="font-size:14px;width:60px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
 			                            </c:forTokens>
 			                        </div>
 								</div>
@@ -83,7 +83,7 @@
 									<c:set var="fids" value="${fn:split(question.options, '@')}" />
 									<c:set var="maps" value="${fn:split(question.optionsBitmap, '@')}" />  
 		                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-		                             	<input style="width:100px;display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
+		                             	<input style="width:60px;display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
 		                            </c:forTokens>
 		                        </div>
 							</div>
