@@ -54,21 +54,40 @@
  			</c:if>
             <c:if test="${!empty page.list  && fn:length(page.list) > 0}">
             	<c:forEach items="${page.list}" var="question" varStatus="myStatus" >
-					<c:if test="${myStatus.index == 0}">
-						<tr>
-							<td>
-								<div class="col-lg-8 col-xs-8">
-								</div>
-								<div class="col-lg-4 col-xs-4">
-									<div style="font-size:16px;text-align:center;">
-			                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-			                             	<span style="font-size:14px;width:60px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
-			                            </c:forTokens>
-			                        </div>
-								</div>
-							</td>
-						</tr>
-					</c:if>
+					<c:choose>
+						<c:when test="${typeCode =='PA_PC' || typeCode =='PA_EC'}">
+							<tr>
+								<td>
+									<div class="col-lg-8 col-xs-8">
+									</div>
+									<div class="col-lg-4 col-xs-4">
+										<div style="font-size:16px;text-align:center;">
+				                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
+				                             	<span style="font-size:14px;width:120px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
+				                            </c:forTokens>
+				                        </div>
+									</div>
+								</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:if test="${myStatus.index == 0}">
+								<tr>
+									<td>
+										<div class="col-lg-8 col-xs-8">
+										</div>
+										<div class="col-lg-4 col-xs-4">
+											<div style="font-size:16px;text-align:center;">
+					                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
+					                             	<span style="font-size:14px;width:60px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
+					                            </c:forTokens>
+					                        </div>
+										</div>
+									</td>
+								</tr>
+							</c:if>
+						</c:otherwise>
+					</c:choose>
 					<tr>
 						<td>
 							<br/>
@@ -83,7 +102,7 @@
 									<c:set var="fids" value="${fn:split(question.options, '@')}" />
 									<c:set var="maps" value="${fn:split(question.optionsBitmap, '@')}" />  
 		                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-		                             	<input style="width:60px;display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
+		                             	<input style="width:60px;<c:if test='${typeCode ==\'PA_PC\' || typeCode ==\'PA_EC\'}'>width:120px;</c:if>display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
 		                            </c:forTokens>
 		                        </div>
 							</div>
