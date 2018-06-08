@@ -63,7 +63,7 @@
 									<div class="col-lg-4 col-xs-4">
 										<div style="font-size:16px;text-align:center;">
 				                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-				                             	<span style="font-size:14px;width:120px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
+				                             	<span style="font-size:14px;width:100px;display:inline-block;padding:5px;<c:if test="${!status.last}">border-right:1px solid black;</c:if>" >${option}</span>
 				                            </c:forTokens>
 				                        </div>
 									</div>
@@ -102,7 +102,7 @@
 									<c:set var="fids" value="${fn:split(question.options, '@')}" />
 									<c:set var="maps" value="${fn:split(question.optionsBitmap, '@')}" />  
 		                            <c:forTokens items="${question.options}" delims="@" var="option" varStatus="status">  
-		                             	<input style="width:60px;<c:if test='${typeCode ==\'PA_PC\' || typeCode ==\'PA_EC\'}'>width:120px;</c:if>display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
+		                             	<input style="width:60px;<c:if test='${typeCode ==\'PA_PC\' || typeCode ==\'PA_EC\'}'>width:100px;</c:if>display:inline-block" type="${question.questionTypeCode }" name="optionBitmap_${myStatus.index+page.pageSize*(page.pageNo-1)}" value="${maps[status.index]}" onchange="checkOrNot($(this))" />
 		                            </c:forTokens>
 		                        </div>
 							</div>
@@ -188,7 +188,7 @@ function goPage(typeCode, paperId, questionIds, pageNo){
 		//console.log(result);
 	});
 	
-	window.location.href="guest/selectQuestionLib/queryExQuestionByIds/"+typeCode+"/"+paperId+"/"+questionIds+"/"+pageNo+"/"+result+"/0";
+	window.location.href="/guest/selectQuestionLib/queryExQuestionByIds/"+typeCode+"/"+paperId+"/"+questionIds+"/"+pageNo+"/"+result+"/0";
 }
 
 function checkOrNot(_this){
@@ -222,7 +222,7 @@ function saveResult(typeCode, paperId, result){
 	if(result.indexOf("_")>-1){
 		alert("您还没有做完哦，请答完再点击完成");
 	}else{
-		window.location.href="guest/custTestResult/saveCustTestResult/"+typeCode+"/"+paperId+"/"+result;
+		window.location.href="/guest/custTestResult/saveCustTestResult/"+typeCode+"/"+paperId+"/"+result;
 	}
 	
 }

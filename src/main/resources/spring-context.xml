@@ -27,6 +27,7 @@
 		<property name="maxPoolSize" value="10"></property>
 		<property name="minPoolSize" value="1"></property>
 		<property name="initialPoolSize" value="1"></property>
+		<property name="idleConnectionTestPeriod" value="60"></property>
 	</bean>
 	
 	<bean id="dataSourceMain" parent="dataSourceTemplate">
