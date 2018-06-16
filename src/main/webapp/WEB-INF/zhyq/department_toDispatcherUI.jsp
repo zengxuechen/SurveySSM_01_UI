@@ -13,7 +13,7 @@
  	
  	<div id="mainDiv" class="borderDiv">
  		设置部门
- 		<form action="manager/departmentHandler/saveCompany" method="post">
+ 		<form action="manager/departmentHandler/saveDepartment" method="post">
  			<input type="hidden" name="userId" value="${userId }"/>
 	 		<table class="table table-bordered table-hover table-striped">
 	 			<c:if test="${empty departmentList }">
@@ -32,7 +32,7 @@
 				 						<c:if test="${id == department.id }"> checked='checked'</c:if>
 				 					</c:forEach>
 			 					/>
-			 					<label for="${department.id }">${department.departmentNameCn }</label>
+			 					<label for="${department.id }">${department.departmentName }</label>
 			 				</td>
 			 			</tr>
 		 			</c:forEach>		 			
